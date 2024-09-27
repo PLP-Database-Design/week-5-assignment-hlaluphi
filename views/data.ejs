@@ -1,0 +1,32 @@
+<table>
+    <thead>
+        <tr>
+            <% if (data[0] && data[0].patient_id) { %>
+                <th>Patient ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+            <% } else if (data[0] && data[0].provider_specialty) { %>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Provider Specialty</th>
+            <% } %>
+        </tr>
+    </thead>
+    <tbody>
+        <% data.forEach(row => { %>
+            <tr>
+                <% if (row.patient_id) { %>
+                    <td><%= row.patient_id %></td>
+                    <td><%= row.first_name %></td>
+                    <td><%= row.last_name %></td>
+                    <td><%= row.date_of_birth %></td>
+                <% } else if (row.provider_specialty) { %>
+                    <td><%= row.first_name %></td>
+                    <td><%= row.last_name %></td>
+                    <td><%= row.provider_specialty %></td>
+                <% } %>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>
